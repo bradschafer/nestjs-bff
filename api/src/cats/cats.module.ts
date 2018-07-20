@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
 import { CatsController } from './cats.controller';
 import { CatsService } from './cats.service';
-import { CommonModule } from '../common/common.module';
-import { AuthModule } from '../auth/auth.module';
-import { catsProviders } from './cats.provider';
+import { catsProviders } from './cats.providers';
 import { DatabaseModule } from '../database/database.module';
 
 @Module({
-  imports: [DatabaseModule, CommonModule, AuthModule],
+  imports: [DatabaseModule],
   controllers: [CatsController],
   providers: [CatsService, ...catsProviders],
 })
